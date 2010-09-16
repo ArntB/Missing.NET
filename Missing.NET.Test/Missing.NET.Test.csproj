@@ -59,6 +59,7 @@
     <Compile Include="Collections\Generic\IEnumerableExtensionsSpec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflection\NameSpaceQuerysSpec.cs" />
+    <Compile Include="Reflection\PropertyInfoExtensionsSpec.cs" />
     <Compile Include="Threading\CommandQueueSpec.cs" />
     <Compile Include="Windows\Forms\ControlExtensionsSpec.cs" />
   </ItemGroup>
