@@ -13,5 +13,10 @@ namespace Missing.Reflection
         {
             info.SetValue(thisObject, new[] { value});
         }
+
+        public static object GetValue(this object self, string propertyName)
+        {
+            
+        }
     }
 }
