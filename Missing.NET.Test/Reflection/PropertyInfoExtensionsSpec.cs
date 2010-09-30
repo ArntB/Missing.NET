@@ -24,5 +24,13 @@ namespace Missing.NET.Test.Reflection
             obj.SetValue1("Test", "Some other text");
             Assert.AreEqual(obj.Test, "Some other text");
         }
+
+        [Test]
+        public void It_should_get_anonymous_types_value()
+        {
+            var obj = new { Test = "Some text" };
+            obj.GetValue("Test");
+            Assert.AreEqual(obj.Test, "Some text");
+        }
     }
 }

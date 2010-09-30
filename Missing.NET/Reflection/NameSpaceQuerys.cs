@@ -8,9 +8,10 @@ namespace Missing.Reflection
     {
         public static Type[] GetTypesInNamespace(this Assembly assembly, string nameSpaceFilter)
         {
-            return(from type in assembly.GetTypes()
-                   where type.Namespace.StartsWith(nameSpaceFilter)
-                   select type).ToArray();
+            Type[] types = assembly.GetTypes();
+            return(from typ in types
+                   where typ.Namespace != null && typ.Namespace.StartsWith(nameSpaceFilter)
+                   select typ).ToArray();
         }
     }
 }

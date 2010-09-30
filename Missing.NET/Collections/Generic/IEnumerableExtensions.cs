@@ -13,7 +13,14 @@ namespace Missing.Collections.Generic
                 action.Invoke(element);
             }
         }
+
+        public static string ForEach<T>(this IEnumerable<T> self, Func<T, string> action)
+        {
+            return self.Aggregate(string.Empty, (current, element) => current + action.Invoke(element));
+        }
     }
+
+
 
     public static class IListExtensions
     {
