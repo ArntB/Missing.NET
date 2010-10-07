@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using System.Reflection;
 
 namespace Missing.Reflection
@@ -26,9 +28,20 @@ namespace Missing.Reflection
             property.SetValue1(self,value);
         }
 
+        public static string ToPropertyString(this object self)
+        {
+            var properties = self.GetType().GetProperties();
+            return properties
+                .Aggregate(string.Empty, 
+                (current, propertyInfo) => current + (propertyInfo.Name + ": " + propertyInfo.GetValue(self) + Environment.NewLine))
+                .Trim();
+        }
+
         private static PropertyInfo GetProperyInfo(object self, string propertyName)
         {
             return self.GetType().GetProperty(propertyName);
         }
+
+        
     }
 }
