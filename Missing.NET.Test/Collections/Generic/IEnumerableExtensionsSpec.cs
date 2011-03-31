@@ -9,16 +9,28 @@ namespace Missing.NET.Test.Collections.Generic
     public class IEnumerableExtensionsSpec
     {
         [Test]
-        public void It_should_foreach_an_enumerable()
+        public void It_should_foreach_an_array()
         {
             var array = new []{"jens", "jesper", "jensen"};
-            IEnumerable<string> list = array;
             int i = 0;
-            list.ForEach(
+            array.ForEach(
                 (item) => {
-                    Assert.AreEqual(array[i++],item);    
+                    Assert.AreEqual(array[i++],item);
                 });
             Assert.AreEqual(3,i);
+        }
+
+        [Test]
+        public void It_should_foreach_a_list()
+        {
+            var array = new List<string> { "jens", "jesper", "jensen" };
+            int i = 0;
+            array.ForEach(
+                (item) =>
+                {
+                    Assert.AreEqual(array[i++], item);
+                });
+            Assert.AreEqual(3, i);
         }
 
         [Test]
@@ -42,6 +54,12 @@ namespace Missing.NET.Test.Collections.Generic
             var array1 = new[] { "jens", "jesper", "jensen" };
             var array2 = new[] { "jens", "jesper", "jensenf" };
             Assert.IsFalse(array1.ElementsEquals(array2));
+        }
+
+        [Test]
+        public void It_should_add_range()
+        {
+            Assert.Fail("Not implemented");
         }
     }
 }
